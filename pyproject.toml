@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "antlr4-vba"
-version = "0.0.6"
+version = "0.0.7"
 authors = [
   { name="Kevin Nowaczyk", email="beakerboy99@yahoo.com" },
 ]
@@ -24,6 +24,3 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/Beakerboy/antlr4-vba/new/dev"
 "Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/new/dev/issues"
-    
-[tool.pytest.ini_options]
-pythonpath = "src:tests"
