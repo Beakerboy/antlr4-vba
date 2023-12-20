@@ -24,3 +24,9 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/Beakerboy/antlr4-vba/new/dev"
 "Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/new/dev/issues"
+
+[tool.setuptools.package-data]
+"pkgname" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
