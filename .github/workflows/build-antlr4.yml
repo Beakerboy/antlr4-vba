@@ -30,6 +30,9 @@ jobs:
           wget https://raw.githubusercontent.com/antlr/grammars-v4/master/vba/vba.g4
           antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vba.g4
           mv deliverables/*.py src/antlr-vba
+          pip install build
+      - name: Build package
+        run: python -m build
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
