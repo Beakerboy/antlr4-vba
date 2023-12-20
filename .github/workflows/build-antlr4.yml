@@ -28,13 +28,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
           wget https://raw.githubusercontent.com/antlr/grammars-v4/master/vba/vba.g4
-      - name: Generate the artifacts
-        uses: Vba-actions/compile-antlr4-python3-grammar@dev
-        with:
-          grammar: 'vba.g4'
-      - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: 'devilerables/*.py'
+          antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vba.g4
+          mv deliverables/*.py src/antlr-vba
