@@ -20,7 +20,10 @@ dependencies = [
   'antlr4-python3-runtime',
   'antlr4-tools'
 ]
-
+[project.optional-dependencies]
+tests = [
+  'mypy'
+]
 [project.urls]
 "Homepage" = "https://github.com/Beakerboy/antlr4-vba/new/dev"
 "Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/new/dev/issues"
