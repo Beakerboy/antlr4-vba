@@ -1,0 +1,41 @@
+name: Handle Release
+
+on:
+  release:
+    types: [created]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  generate:
+    name: Create release-artifacts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[tests]
+          wget https://raw.githubusercontent.com/antlr/grammars-v4/master/vba/vba.g4
+          antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vba.g4
+          mv deliverables/*.py src/antlr4_vba
+          stubgen src/antlr4_vba -o src/antlr4_vba
+          pip install build
+      - name: Build package
+        run: python -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}

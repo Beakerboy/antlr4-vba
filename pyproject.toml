@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antlr4_vba"
+version = "0.0.14"
+authors = [
+  { name="Kevin Nowaczyk", email="beakerboy99@yahoo.com" },
+]
+description = "VBA targeted antlr4 parsing classes."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'antlr4-python3-runtime',
+  'antlr4-tools'
+]
+[project.optional-dependencies]
+tests = [
+  'mypy'
+]
+[project.urls]
+"Homepage" = "https://github.com/Beakerboy/antlr4-vba/new/dev"
+"Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/new/dev/issues"
+
+[tool.setuptools.package-data]
+"pkgname" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
