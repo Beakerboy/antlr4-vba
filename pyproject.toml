@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "antlr4_vba"
-version = "0.0.14"
+version = "0.0.15"
 authors = [
   { name="Kevin Nowaczyk", email="beakerboy99@yahoo.com" },
 ]
@@ -25,8 +25,8 @@ tests = [
   'mypy'
 ]
 [project.urls]
-"Homepage" = "https://github.com/Beakerboy/antlr4-vba/new/dev"
-"Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/new/dev/issues"
+"Homepage" = "https://github.com/Beakerboy/antlr4-vba"
+"Bug Tracker" = "https://github.com/Beakerboy/antlr4-vba/issues"
 
 [tool.setuptools.package-data]
 "pkgname" = ["py.typed"]
