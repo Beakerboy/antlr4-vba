@@ -1,0 +1,25 @@
+name: Bump Version if Grammar Changes
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+    - branches: [ "dev" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get grammar date
+      run: |
+        clear
+    - name: Get package date
+      run: |
+        clear
+    - name: Bump Version
+      run: |
+        clear
+    - name: Commit and push to main
+      run: |
+        git add *
+        git commit -m "bump version"
+        git add tag
+        git push
+    
