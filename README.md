@@ -1,6 +1,7 @@
 # antlr4-vba
 
-antlr4-vba is a package of the Lexer and Parser created by antlr with the command `antlr4 -Dlanguage=Python3 -listener -visitor vba.g4`. The project also includes the empty listener and visitor classes, which are largely useless.
+antlr4-vba is a package of the Lexer and Parser created by antlr with the command `antlr4 -Dlanguage=Python3 -listener -visitor vba.g4`. The project also includes the empty listener and visitor classes, which are largely useless on their own, but good as reference.
+Similarly, there are grammar, lexer, and parser files which implement the conditional compilation process of VBA.
 
 ## Installation
 The project can be installed with `python -m pip install antlr4-vba`
