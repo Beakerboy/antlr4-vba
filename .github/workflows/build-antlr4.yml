@@ -28,9 +28,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e .[tests]
-          wget https://raw.githubusercontent.com/Beakerboy/grammars-v4/patch-7/vba/vba.g4
+          wget https://raw.githubusercontent.com/Beakerboy/grammars-v4/coverage/vba/vba7_1/vbaLexer.g4
+          wget https://raw.githubusercontent.com/Beakerboy/grammars-v4/coverage/vba/vba7_1/vbaParser.g4
           wget https://raw.githubusercontent.com/Beakerboy/grammars-v4/coverage/vba/vba_cc/vba_cc.g4
-          antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vba.g4
+          antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vbaParser.g4 vbaLexer.g4
           antlr4 -Dlanguage=Python3 -o deliverables -listener -visitor vba_cc.g4
           mv deliverables/*.py src/antlr4_vba
           stubgen src/antlr4_vba -o src/antlr4_vba
